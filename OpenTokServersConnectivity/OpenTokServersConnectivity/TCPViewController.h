@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConnectivityTableViewBaseController.h"
 
-@interface TCPViewController : UITableViewController
+@interface TCPViewController : ConnectivityTableViewBaseController
 
 @end

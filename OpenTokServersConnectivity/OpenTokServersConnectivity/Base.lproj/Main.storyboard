@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - Tokbox-->
         <scene sceneID="cQa-7k-yOG">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="BOn-lb-ZKh" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                <tabBarController title="Tokbox" definesPresentationContext="YES" id="BOn-lb-ZKh" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="f0a-2f-9ly">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -17,6 +17,7 @@
                     <connections>
                         <segue destination="nTs-Fj-cSV" kind="relationship" relationship="viewControllers" id="Nyt-bJ-u12"/>
                         <segue destination="1kt-F7-Ucr" kind="relationship" relationship="viewControllers" id="Mc0-e4-nSQ"/>
+                        <segue destination="Iy0-DB-Wxd" kind="relationship" relationship="viewControllers" id="iLw-eC-Lla"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTv-HS-c1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -31,30 +32,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="N58-Sv-eIl">
+                            <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="1nX-Tk-kzh" detailTextLabel="ETz-qK-6f1" style="IBUITableViewCellStyleSubtitle" id="1zc-sy-cxw">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="1zc-sy-cxw" customClass="TableViewCell">
+                                <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1zc-sy-cxw" id="don-Op-uKG">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1nX-Tk-kzh">
-                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QR-Wq-o9p">
+                                            <rect key="frame" x="16" y="2" width="230" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ETz-qK-6f1">
-                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzz-6Y-n6u">
+                                            <rect key="frame" x="16" y="20" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-hO-lrL">
+                                            <rect key="frame" x="254" y="0.0" width="66" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectedStatusView" destination="gqk-hO-lrL" id="6Ek-Os-MRn"/>
+                                    <outlet property="host" destination="9QR-Wq-o9p" id="gTJ-Ji-UFr"/>
+                                    <outlet property="port" destination="Fzz-6Y-n6u" id="5Ey-v4-Hj6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -64,6 +77,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="eoi-eG-hYO"/>
+                    <connections>
+                        <outlet property="progressBar" destination="N58-Sv-eIl" id="teb-4M-BP5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zi-EE-FaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,30 +93,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="3xk-K2-C2r">
+                            <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="vub-mH-9J8" detailTextLabel="byK-51-i01" style="IBUITableViewCellStyleSubtitle" id="bKh-8v-LX9">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="bKh-8v-LX9" customClass="TableViewCell">
+                                <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKh-8v-LX9" id="Qop-Ev-B1X">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vub-mH-9J8">
-                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYV-1W-70X">
+                                            <rect key="frame" x="14" y="0.0" width="231" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="byK-51-i01">
-                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-X1-YaL">
+                                            <rect key="frame" x="14" y="20" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-qy-vhN">
+                                            <rect key="frame" x="253" y="0.0" width="56" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectedStatusView" destination="4bB-qy-vhN" id="287-aY-lqc"/>
+                                    <outlet property="host" destination="HYV-1W-70X" id="9TQ-SI-Mjr"/>
+                                    <outlet property="port" destination="i9r-X1-YaL" id="KEH-KA-8Mg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -110,16 +137,78 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JVx-mX-flD"/>
+                    <connections>
+                        <outlet property="progressBar" destination="3xk-K2-C2r" id="qQf-C8-xKe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2Z-FI-k5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="503"/>
+            <point key="canvasLocation" x="1215" y="493"/>
         </scene>
-        <!--Navigation Controller - Stun-->
+        <!--View Controller-->
+        <scene sceneID="bRZ-Vw-1iz">
+            <objects>
+                <tableViewController id="o6R-34-6DB" customClass="WSSViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wJ4-fn-baU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="5SW-7J-DHr">
+                            <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Wbg-Ya-IJR" customClass="TableViewCell">
+                                <rect key="frame" x="0.0" y="88" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wbg-Ya-IJR" id="xYS-em-ks1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bq4-J8-p2P">
+                                            <rect key="frame" x="245" y="0.0" width="62" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StU-YZ-MAv">
+                                            <rect key="frame" x="15" y="0.0" width="222" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa4-sD-XKQ">
+                                            <rect key="frame" x="15" y="20" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectedStatusView" destination="Bq4-J8-p2P" id="iKC-Q1-qZV"/>
+                                    <outlet property="host" destination="StU-YZ-MAv" id="2U3-wA-y6e"/>
+                                    <outlet property="port" destination="sa4-sD-XKQ" id="9pv-q5-FGy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o6R-34-6DB" id="YCM-co-yEM"/>
+                            <outlet property="delegate" destination="o6R-34-6DB" id="84T-Q9-Rgp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="r0A-3K-GcU"/>
+                    <connections>
+                        <outlet property="progressBar" destination="5SW-7J-DHr" id="dH6-QD-aXi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9i-WR-LSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="1164"/>
+        </scene>
+        <!--Navigation Controller - Tokbox Stun/Udp checks-->
         <scene sceneID="IoI-wM-WLh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1kt-F7-Ucr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stun" id="dtv-iC-shZ"/>
+                    <tabBarItem key="tabBarItem" title="Tokbox Stun/Udp checks" image="stun.png" id="dtv-iC-shZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hh3-YC-gff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -138,7 +227,7 @@
         <scene sceneID="4Qv-KB-qTg">
             <objects>
                 <navigationController title="Tokbox Connectivity - TCP" automaticallyAdjustsScrollViewInsets="NO" id="nTs-Fj-cSV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TCP" id="6jo-UC-WHo"/>
+                    <tabBarItem key="tabBarItem" title="Tokbox Tcp checks" image="tcp.png" id="6jo-UC-WHo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wo2-ho-M3x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -153,7 +242,31 @@
             </objects>
             <point key="canvasLocation" x="930" y="-205"/>
         </scene>
+        <!--Navigation Controller - Tokbox websocket checks-->
+        <scene sceneID="Cai-Xd-kMy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iy0-DB-Wxd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tokbox websocket checks" image="wss.png" id="phr-q5-Ha6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DAj-75-Hwi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o6R-34-6DB" kind="relationship" relationship="rootViewController" id="fY5-5v-V82"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3C6-3U-BBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="1164"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="stun.png" width="51" height="20"/>
+        <image name="tcp.png" width="39" height="26"/>
+        <image name="wss.png" width="44" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -37,7 +37,7 @@
         
         self.finished = NO;
         self.executing = NO;
-        _connected = NO;
+        self.connected = NO;
         
     }
     return self;
@@ -79,7 +79,7 @@
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 if(self.finished == NO)
                 {
-                    _connected = NO;
+                    self.connected = NO;
                     [self tearDown];
                     
                 }
@@ -134,15 +134,16 @@
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
 {
    // NSLog(@":( Websocket Failed With Error %@", error);
-    _connected = NO;
+    self.connected = NO;
     [self tearDown];
+    
 
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
 {
    // NSLog(@"Received \"%@\"", message);
-    _connected = YES;
+    self.connected = YES;
     [self tearDown];
 }
 

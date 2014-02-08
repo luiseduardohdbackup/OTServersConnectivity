@@ -41,7 +41,7 @@
         
         self.finished = NO;
         self.executing = NO;
-        _connected = NO;
+        self.connected = NO;
     }
     return self;
 }
@@ -91,7 +91,7 @@
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 if(self.finished == NO)
                 {
-                    _connected = NO;
+                    self.connected = NO;
                     [self tearDown];
 
                 }
@@ -135,7 +135,7 @@
 #pragma mark STUN Client Delegate
 -(void)didReceivePublicIPandPort:(NSDictionary *) data{
     
-    _connected= YES;
+    self.connected = YES;
 
     [self tearDown];
 

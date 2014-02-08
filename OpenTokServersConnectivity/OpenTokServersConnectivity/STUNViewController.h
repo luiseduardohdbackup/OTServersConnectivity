@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConnectivityTableViewBaseController.h"
 
-@interface STUNViewController : UITableViewController
+@interface STUNViewController : ConnectivityTableViewBaseController
 
 @end

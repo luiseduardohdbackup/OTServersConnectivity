@@ -15,6 +15,7 @@
 @property (nonatomic,strong) GCDAsyncSocket * tcpSocket;
 @property (nonatomic,strong) NSString * host;
 @property NSUInteger port;
+@property NSTimeInterval timeout;
 @property BOOL finished;
 @property BOOL executing;
 @end
@@ -28,17 +29,18 @@
     return  nil;
 }
 
--(id) initWithHost:(NSString*) host port:(NSInteger) port
+-(id) initWithHost:(NSString*) host port:(NSInteger) port timeout:(NSTimeInterval)time
 {
     self = [super init];
     if(self != nil)
     {
         self.host = host;
         self.port = port;
-
+        self.timeout = time;
+        
         self.finished = NO;
         self.executing = NO;
-        _connected = NO;
+        self.connected = NO;
 
     }
     return self;
@@ -73,7 +75,7 @@
 
             self.tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
             NSError *error = nil;
-            if (![self.tcpSocket connectToHost:self.host onPort:self.port error:&error]) // Asynchronous!
+            if (![self.tcpSocket connectToHost:self.host onPort:self.port withTimeout:self.timeout error:&error]) // Asynchronous!
             {
                 // If there was an error, it's likely something like "already connected" or "no delegate set"
                 NSLog(@"I goofed - already connected or delegate not set: %@", error);
@@ -116,13 +118,13 @@
 
 - (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
 {
-    _connected = YES;
+    self.connected = YES;
     [self tearDown];
 
 }
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
-    _connected = NO;
+    self.connected = NO;
     [self tearDown];
 }
 

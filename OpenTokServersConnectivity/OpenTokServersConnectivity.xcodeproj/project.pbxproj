@@ -36,6 +36,15 @@
 		237BCEB918A440940003D77B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237BCEB818A440940003D77B /* CFNetwork.framework */; };
 		237BCEBB18A4409F0003D77B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237BCEBA18A4409F0003D77B /* Security.framework */; };
 		237BCEBE18A444ED0003D77B /* OTHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCEBD18A444ED0003D77B /* OTHost.m */; };
+		237BCED318A55B3E0003D77B /* stun.png in Resources */ = {isa = PBXBuildFile; fileRef = 237BCED218A55B3E0003D77B /* stun.png */; };
+		237BCED518A55B700003D77B /* tcp.png in Resources */ = {isa = PBXBuildFile; fileRef = 237BCED418A55B700003D77B /* tcp.png */; };
+		237BCED718A55BC80003D77B /* wss.png in Resources */ = {isa = PBXBuildFile; fileRef = 237BCED618A55BC80003D77B /* wss.png */; };
+		237BCEE618A584010003D77B /* connected.png in Resources */ = {isa = PBXBuildFile; fileRef = 237BCEE418A584010003D77B /* connected.png */; };
+		237BCEE718A584010003D77B /* notConnected.png in Resources */ = {isa = PBXBuildFile; fileRef = 237BCEE518A584010003D77B /* notConnected.png */; };
+		237BCEF318A5B8050003D77B /* WSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCEF218A5B8050003D77B /* WSSViewController.m */; };
+		237BCEF618A5B8250003D77B /* ConnectivityTableViewBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCEF518A5B8250003D77B /* ConnectivityTableViewBaseController.m */; };
+		237BCEF918A5B8380003D77B /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCEF818A5B8380003D77B /* TableViewCell.m */; };
+		237BCEFC18A5B85E0003D77B /* OTConnectivityBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCEFB18A5B85E0003D77B /* OTConnectivityBaseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +104,19 @@
 		237BCEBA18A4409F0003D77B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		237BCEBC18A444ED0003D77B /* OTHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTHost.h; sourceTree = "<group>"; };
 		237BCEBD18A444ED0003D77B /* OTHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTHost.m; sourceTree = "<group>"; };
+		237BCED218A55B3E0003D77B /* stun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stun.png; sourceTree = "<group>"; };
+		237BCED418A55B700003D77B /* tcp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tcp.png; sourceTree = "<group>"; };
+		237BCED618A55BC80003D77B /* wss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wss.png; sourceTree = "<group>"; };
+		237BCEE418A584010003D77B /* connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connected.png; sourceTree = "<group>"; };
+		237BCEE518A584010003D77B /* notConnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notConnected.png; sourceTree = "<group>"; };
+		237BCEF118A5B8050003D77B /* WSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSSViewController.h; sourceTree = "<group>"; };
+		237BCEF218A5B8050003D77B /* WSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSSViewController.m; sourceTree = "<group>"; };
+		237BCEF418A5B8250003D77B /* ConnectivityTableViewBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectivityTableViewBaseController.h; sourceTree = "<group>"; };
+		237BCEF518A5B8250003D77B /* ConnectivityTableViewBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectivityTableViewBaseController.m; sourceTree = "<group>"; };
+		237BCEF718A5B8380003D77B /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		237BCEF818A5B8380003D77B /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		237BCEFA18A5B85E0003D77B /* OTConnectivityBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTConnectivityBaseOperation.h; sourceTree = "<group>"; };
+		237BCEFB18A5B85E0003D77B /* OTConnectivityBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTConnectivityBaseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,16 +182,23 @@
 		237BCE6418A425BA0003D77B /* OpenTokServersConnectivity */ = {
 			isa = PBXGroup;
 			children = (
+				237BCEBF18A557C70003D77B /* Resources */,
 				237BCE9918A43E960003D77B /* SocketsCode */,
-				237BCE6D18A425BA0003D77B /* AppDelegate.h */,
-				237BCE6E18A425BA0003D77B /* AppDelegate.m */,
 				237BCE7018A425BA0003D77B /* Main.storyboard */,
+				237BCEF118A5B8050003D77B /* WSSViewController.h */,
+				237BCEF218A5B8050003D77B /* WSSViewController.m */,
 				237BCE9318A43ACA0003D77B /* TCPViewController.h */,
 				237BCE9418A43ACA0003D77B /* TCPViewController.m */,
-				237BCEBC18A444ED0003D77B /* OTHost.h */,
-				237BCEBD18A444ED0003D77B /* OTHost.m */,
 				237BCE9618A43D890003D77B /* STUNViewController.h */,
 				237BCE9718A43D890003D77B /* STUNViewController.m */,
+				237BCEF418A5B8250003D77B /* ConnectivityTableViewBaseController.h */,
+				237BCEF518A5B8250003D77B /* ConnectivityTableViewBaseController.m */,
+				237BCEBC18A444ED0003D77B /* OTHost.h */,
+				237BCEBD18A444ED0003D77B /* OTHost.m */,
+				237BCE6D18A425BA0003D77B /* AppDelegate.h */,
+				237BCE6E18A425BA0003D77B /* AppDelegate.m */,
+				237BCEF718A5B8380003D77B /* TableViewCell.h */,
+				237BCEF818A5B8380003D77B /* TableViewCell.m */,
 				237BCE7318A425BA0003D77B /* ViewController.h */,
 				237BCE7418A425BA0003D77B /* ViewController.m */,
 				237BCE7618A425BA0003D77B /* Images.xcassets */,
@@ -213,6 +242,8 @@
 				237BCEA418A43F230003D77B /* GCDAsyncSocket.h */,
 				237BCEA518A43F230003D77B /* GCDAsyncSocket.m */,
 				237BCEA618A43F230003D77B /* GCDAsyncUdpSocket.h */,
+				237BCEFA18A5B85E0003D77B /* OTConnectivityBaseOperation.h */,
+				237BCEFB18A5B85E0003D77B /* OTConnectivityBaseOperation.m */,
 				237BCEA718A43F230003D77B /* GCDAsyncUdpSocket.m */,
 				237BCEA818A43F230003D77B /* STUNClient.h */,
 				237BCEA918A43F230003D77B /* STUNClient.m */,
@@ -238,6 +269,18 @@
 				237BCEA018A43F0A0003D77B /* NSData+SRB64Additions.m */,
 			);
 			name = "WebSockets Headers";
+			sourceTree = "<group>";
+		};
+		237BCEBF18A557C70003D77B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				237BCED218A55B3E0003D77B /* stun.png */,
+				237BCED618A55BC80003D77B /* wss.png */,
+				237BCEE418A584010003D77B /* connected.png */,
+				237BCEE518A584010003D77B /* notConnected.png */,
+				237BCED418A55B700003D77B /* tcp.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +359,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237BCEE618A584010003D77B /* connected.png in Resources */,
 				237BCE7718A425BA0003D77B /* Images.xcassets in Resources */,
 				237BCE6918A425BA0003D77B /* InfoPlist.strings in Resources */,
+				237BCED518A55B700003D77B /* tcp.png in Resources */,
+				237BCED718A55BC80003D77B /* wss.png in Resources */,
 				237BCE7218A425BA0003D77B /* Main.storyboard in Resources */,
+				237BCED318A55B3E0003D77B /* stun.png in Resources */,
+				237BCEE718A584010003D77B /* notConnected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +387,8 @@
 			files = (
 				237BCEB218A43F230003D77B /* STUNClient.m in Sources */,
 				237BCEA318A43F0A0003D77B /* NSData+SRB64Additions.m in Sources */,
+				237BCEFC18A5B85E0003D77B /* OTConnectivityBaseOperation.m in Sources */,
+				237BCEF318A5B8050003D77B /* WSSViewController.m in Sources */,
 				237BCE9518A43ACA0003D77B /* TCPViewController.m in Sources */,
 				237BCE7518A425BA0003D77B /* ViewController.m in Sources */,
 				237BCEBE18A444ED0003D77B /* OTHost.m in Sources */,
@@ -347,6 +397,8 @@
 				237BCEB518A43F230003D77B /* OTWebSocketOperation.m in Sources */,
 				237BCEA218A43F0A0003D77B /* SRWebSocket.m in Sources */,
 				237BCEB118A43F230003D77B /* GCDAsyncUdpSocket.m in Sources */,
+				237BCEF618A5B8250003D77B /* ConnectivityTableViewBaseController.m in Sources */,
+				237BCEF918A5B8380003D77B /* TableViewCell.m in Sources */,
 				237BCEB018A43F230003D77B /* GCDAsyncSocket.m in Sources */,
 				237BCEB418A43F230003D77B /* OTTCPOperation.m in Sources */,
 				237BCEA118A43F0A0003D77B /* base64.c in Sources */,
@@ -562,6 +614,7 @@
 				237BCE8F18A425BA0003D77B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		237BCE9018A425BA0003D77B /* Build configuration list for PBXNativeTarget "OpenTokServersConnectivityTests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +623,7 @@
 				237BCE9218A425BA0003D77B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
