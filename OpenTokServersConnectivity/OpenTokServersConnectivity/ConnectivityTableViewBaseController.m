@@ -14,7 +14,7 @@
 
 @interface ConnectivityTableViewBaseController ()
 @property (nonatomic, strong) NSMutableArray *entries;
-
+@property (nonatomic, strong) NSOperationQueue * queue;
 
 
 
@@ -38,7 +38,7 @@
         host.name = key;
         host.port = [obj integerValue];
         host.connected = NO;
-        
+        host.refreshing = NO;
         [self.entries addObject:host];
         
     }];
@@ -55,23 +55,29 @@
     [super viewDidLoad];
 
     self.entries = [NSMutableArray new];
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(connectivityChecks) forControlEvents:UIControlEventValueChanged];
+   
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.queue = [NSOperationQueue new];
+    [self.queue setMaxConcurrentOperationCount:1];
+    
     [self initializeAllHosts];
     [self initializeDisplayTitle];
- 
-}
--(void) viewDidAppear:(BOOL)animated
-{
+    
     self.progressBar.progress = 0.0;
-    self.checkingForConnectivityDone = NO;
+    
     [self connectivityChecks];
 
-    
-    
+ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,19 +113,24 @@
     OTHost * host = [self.entries objectAtIndex:indexPath.row];
     cell.host.text = host.name;
 	cell.port.text = [NSString stringWithFormat: @"%d", (int)host.port];
-    
+    //NSLog(@"Row = %d connected=%d" ,indexPath.row, host.connected);
     //If checking is not being done don't show any image
-    if(self.checkingForConnectivityDone == YES)
+    if(host.refreshing)
     {
+        cell.connectedStatusView.image = nil;
+        [cell.activityView startAnimating];
+        
+    } else {
+        [cell.activityView stopAnimating];
         if(host.connected)
         {
             cell.connectedStatusView.image = [UIImage imageNamed:@"connected.png"];
         } else {
             cell.connectedStatusView.image = [UIImage imageNamed:@"notConnected.png"];
         }
-    } else {
-        cell.connectedStatusView.image = nil;
+
     }
+    
     return cell;
 }
 
@@ -181,59 +192,81 @@
         if([hostName isEqualToString:host.name] == YES)
         {
             host.connected = f;
+            host.refreshing = NO;
             *stop = YES;
         }
     } ];
     
 }
--(void) connectivityChecksRR
+-(void) host:(NSString *)hostName refreshing:(BOOL)f
 {
+    [self.entries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        OTHost * host = obj;
+        if([hostName isEqualToString:host.name] == YES)
+        {
+            host.refreshing = f;
+            *stop = YES;
+        }
+    } ];
     
 }
+
+-(void) refreshResetModel
+{
+    [self.queue cancelAllOperations];
+    [self.entries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        OTHost * host = obj;
+        host.refreshing = YES;
+    } ];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //NSLog(@"server tested %d %@",serverTested,key);
+        self.progressBar.progress =  0;
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+
+        
+    });
+
+   
+
+}
+
 -(void) connectivityChecks
 {
     //make all the op asyn using operation q
-    NSOperationQueue * q = [NSOperationQueue new];
+    [self refreshResetModel];
+    
     int numberofServers = self.hosts.count;
     __block int serverTested = 0;
     
     [self.hosts enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        [self host:key refreshing:YES];
         OTConnectivityBaseOperation * operation = [self operationToPerformWithHost:key port:[obj integerValue] timeout:10];
-        NSAssert(operation,nil);
+       // NSAssert(operation != nil,@"pointer is nil" );
        
         __block __weak OTConnectivityBaseOperation * weakOperation = operation;
         operation.completionBlock = ^{
-            
-            
-            
+     
             NSAssert( weakOperation != nil, @"pointer is nil" );
-            if(weakOperation.connected == YES)
-            {
-                [self host:key connected:YES];
-                NSLog(@"Connected to %@ at port %d (%d/%d), tcp test",key,[obj integerValue],++serverTested,numberofServers);
-                
-            } else {
-                [self host:key connected:NO];
-                NSLog(@"Not connected to %@ at port %d (%d/%d), tcp test FAILED",key,[obj integerValue],++serverTested,numberofServers);
-                
-            }
+
+            [self host:key connected:weakOperation.connected];
+            
             weakOperation = nil;
-            
-            self.progressBar.progress =  ((float)serverTested/(float)self.hosts.count);
-            
-            if(serverTested == self.hosts.count)
-            {
-                self.checkingForConnectivityDone = YES;
+            serverTested++;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //NSLog(@"server tested %d %@",serverTested,key);
+                self.progressBar.progress =  ((float)serverTested/(float)self.hosts.count);
                 [self.tableView reloadData];
                 [self.tableView setNeedsDisplay];
-                
-            } else {
-                
-            }
+               
+            });
             
         };
         
-        [q addOperation:operation];
+        [self.queue addOperation:operation];
     }];
     
 }

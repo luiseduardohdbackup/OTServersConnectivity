@@ -72,30 +72,38 @@
 {
     @try {
         @autoreleasepool {
-            
-            self.udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-            self.stunClient = [[STUNClient alloc] initWithHost:self.host port:self.port];
-            [self.stunClient requestPublicIPandPortWithUDPSocket:self.udpSocket delegate:self];
-            
-            NSData *data = [
-                            [NSString stringWithFormat:@"Hello World"]
-                            dataUsingEncoding:NSUTF8StringEncoding
-                            ];
-            
-            
-            
-            [self.udpSocket sendData:data toHost:self.host port:self.port withTimeout:-1 tag:1];
-            
-            double delayInSeconds = self.timeout;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                if(self.finished == NO)
-                {
-                    self.connected = NO;
-                    [self tearDown];
+            if([self isCancelled] == NO)
+            {
+                self.udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+                self.stunClient = [[STUNClient alloc] initWithHost:self.host port:self.port];
+                [self.stunClient requestPublicIPandPortWithUDPSocket:self.udpSocket delegate:self];
+                
+                NSData *data = [
+                                [NSString stringWithFormat:@"Hello World"]
+                                dataUsingEncoding:NSUTF8StringEncoding
+                                ];
+                
+                
+                
+                [self.udpSocket sendData:data toHost:self.host port:self.port withTimeout:-1 tag:1];
 
-                }
-            });
+            }
+            if([self isCancelled] == NO)
+            {
+                double delayInSeconds = self.timeout;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    if(self.finished == NO)
+                    {
+                        self.connected = NO;
+                        [self tearDown];
+                        
+                    }
+                });
+
+            } else {
+                [self tearDown];
+            }
             
         }
     }

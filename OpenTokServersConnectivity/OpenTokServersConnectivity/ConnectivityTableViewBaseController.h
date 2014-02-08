@@ -13,8 +13,7 @@
 // set this to your host list else nothing gets checked
 @property (nonatomic, strong) NSDictionary * hosts;
 
-//use this flag to control table reloads
-@property BOOL checkingForConnectivityDone;
+
 
 //link your progress bar here
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;

@@ -24,7 +24,7 @@
                             @"mantis901-mia.tokbox.com": @3478,
                             @"turn401-oak.tokbox.com": @3478,
                             @"turn403-oak.tokbox.com": @3478,
-                            @"turn503-nyc.t okbox.com": @3478,
+                            @"turn503-nyc.tokbox.com": @3478,
                             @"turn802-lhr.tokbox.com": @3478,
                             @"turn402-oak.tokbox.com": @3478,
                             @"turn502-nyc.tokbox.com": @3478,

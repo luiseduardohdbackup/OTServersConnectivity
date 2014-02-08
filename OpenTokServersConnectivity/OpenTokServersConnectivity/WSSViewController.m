@@ -44,46 +44,6 @@
 }
 
 
--(void) connectivityChecks
-{
-    //make all the op asyn using operation q
-    NSOperationQueue * q = [NSOperationQueue new];
-    int numberofServers = self.hosts.count;
-    __block int serverTested = 0;
-    
-    [self.hosts enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        OTWebSocketOperation * operation = [[OTWebSocketOperation alloc] initWithHost:key port:[obj integerValue] timeout:10];
-        __block __weak OTWebSocketOperation * weakOperation = operation;
-        operation.completionBlock = ^{
-            
-
-            
-            NSAssert( weakOperation != nil, @"pointer is nil" );
-            if(weakOperation.connected == YES)
-            {
-                [self host:key connected:YES];
-                NSLog(@"Connected to %@ at port %d (%d/%d), wss test",key,[obj integerValue],++serverTested,numberofServers);
-                
-            } else {
-                [self host:key connected:NO];
-                NSLog(@"Not connected to %@ at port %d (%d/%d), wss test FAILED",key,[obj integerValue],++serverTested,numberofServers);
-            }
-            weakOperation = nil;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.progressBar.progress =  ((float)serverTested/(float)self.hosts.count);
-                [self.tableView reloadData];
-                [self.tableView setNeedsDisplay];
-                self.checkingForConnectivityDone = (serverTested == self.hosts.count);
-                
-            });
-            
-        };
-        [q addOperation:operation];
-    }];
-    
-}
-
 -(OTConnectivityBaseOperation * ) operationToPerformWithHost:(NSString *) host port:(int)portNum timeout:(NSTimeInterval)time
 {
     return [[OTWebSocketOperation alloc] initWithHost:host port:portNum timeout:time];

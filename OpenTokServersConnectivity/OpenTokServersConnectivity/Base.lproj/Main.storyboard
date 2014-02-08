@@ -28,7 +28,7 @@
         <scene sceneID="nMB-ev-7qR">
             <objects>
                 <tableViewController id="Z7e-tR-yz6" customClass="TCPViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PqP-kf-Jr7">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PqP-kf-Jr7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,9 +61,14 @@
                                             <rect key="frame" x="254" y="0.0" width="66" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FG6-JD-Iwe">
+                                            <rect key="frame" x="275" y="10" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityView" destination="FG6-JD-Iwe" id="hbU-FO-E3x"/>
                                     <outlet property="connectedStatusView" destination="gqk-hO-lrL" id="6Ek-Os-MRn"/>
                                     <outlet property="host" destination="9QR-Wq-o9p" id="gTJ-Ji-UFr"/>
                                     <outlet property="port" destination="Fzz-6Y-n6u" id="5Ey-v4-Hj6"/>
@@ -89,7 +94,7 @@
         <scene sceneID="03z-L1-9nc">
             <objects>
                 <tableViewController id="ulU-bj-dDF" customClass="STUNViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="d1p-EU-MW7">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="d1p-EU-MW7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,9 +126,14 @@
                                             <rect key="frame" x="253" y="0.0" width="56" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZRh-Sc-ql5">
+                                            <rect key="frame" x="270" y="10" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityView" destination="ZRh-Sc-ql5" id="WGK-Ci-un4"/>
                                     <outlet property="connectedStatusView" destination="4bB-qy-vhN" id="287-aY-lqc"/>
                                     <outlet property="host" destination="HYV-1W-70X" id="9TQ-SI-Mjr"/>
                                     <outlet property="port" destination="i9r-X1-YaL" id="KEH-KA-8Mg"/>
@@ -181,9 +191,14 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JAt-bt-Nku">
+                                            <rect key="frame" x="270" y="10" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityView" destination="JAt-bt-Nku" id="5Rz-EU-uF5"/>
                                     <outlet property="connectedStatusView" destination="Bq4-J8-p2P" id="iKC-Q1-qZV"/>
                                     <outlet property="host" destination="StU-YZ-MAv" id="2U3-wA-y6e"/>
                                     <outlet property="port" destination="sa4-sD-XKQ" id="9pv-q5-FGy"/>

@@ -67,23 +67,32 @@
 {
     @try {
         @autoreleasepool {
-            NSString * url = [NSString stringWithFormat:@"wss://%@:%d/rumorwebsockets",self.host,self.port];
-            
-            _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-            _webSocket.delegate = self;
+            if([self isCancelled] == NO)
+            {
+                NSString * url = [NSString stringWithFormat:@"wss://%@:%d/rumorwebsockets",self.host,self.port];
+                
+                _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+                _webSocket.delegate = self;
+                
+                [_webSocket open];
+                
+            }
 
-            [_webSocket open];
-            
-            double delayInSeconds = self.timeout;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                if(self.finished == NO)
-                {
-                    self.connected = NO;
-                    [self tearDown];
-                    
-                }
-            });
+            if([self isCancelled] == NO)
+            {
+                double delayInSeconds = self.timeout;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    if(self.finished == NO)
+                    {
+                        self.connected = NO;
+                        [self tearDown];
+                        
+                    }
+                });
+            } else {
+                [self tearDown];
+            }
 
             
         }

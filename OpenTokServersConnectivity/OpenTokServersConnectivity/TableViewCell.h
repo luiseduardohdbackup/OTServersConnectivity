@@ -12,4 +12,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *host;
 @property (nonatomic, strong) IBOutlet UILabel *port;
 @property (nonatomic, strong) IBOutlet UIImageView *connectedStatusView;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView * activityView;
 @end

@@ -12,4 +12,5 @@
 @property (nonatomic, strong) NSString * name;
 @property int port;
 @property BOOL connected;
+@property BOOL refreshing;
 @end
