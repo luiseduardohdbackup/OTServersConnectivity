@@ -72,19 +72,14 @@
 {
     @try {
         @autoreleasepool {
-            if([self isCancelled] == NO)
+
+            self.tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+            NSError *error = nil;
+            if (![self.tcpSocket connectToHost:self.host onPort:self.port withTimeout:self.timeout error:&error]) // Asynchronous!
             {
-                self.tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-                NSError *error = nil;
-                if (![self.tcpSocket connectToHost:self.host onPort:self.port withTimeout:self.timeout error:&error]) // Asynchronous!
-                {
-                    // If there was an error, it's likely something like "already connected" or "no delegate set"
-                    NSLog(@"I goofed - already connected or delegate not set: %@", error);
-                }
-
-                
+                // If there was an error, it's likely something like "already connected" or "no delegate set"
+                NSLog(@"I goofed - already connected or delegate not set: %@", error);
             }
-
         }
     }
     @catch (NSException *exception) {

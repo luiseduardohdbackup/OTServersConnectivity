@@ -68,7 +68,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.queue = [NSOperationQueue new];
-    [self.queue setMaxConcurrentOperationCount:1];
+    [self.queue setMaxConcurrentOperationCount:3];
     
     [self initializeAllHosts];
     [self initializeDisplayTitle];
@@ -115,7 +115,7 @@
 	cell.port.text = [NSString stringWithFormat: @"%d", (int)host.port];
     //NSLog(@"Row = %d connected=%d" ,indexPath.row, host.connected);
     //If checking is not being done don't show any image
-    if(host.refreshing)
+    if(host.refreshing == YES)
     {
         cell.connectedStatusView.image = nil;
         [cell.activityView startAnimating];
@@ -198,27 +198,19 @@
     } ];
     
 }
--(void) host:(NSString *)hostName refreshing:(BOOL)f
-{
-    [self.entries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        OTHost * host = obj;
-        if([hostName isEqualToString:host.name] == YES)
-        {
-            host.refreshing = f;
-            *stop = YES;
-        }
-    } ];
-    
-}
 
--(void) refreshResetModel
+
+-(void) resetModel
 {
     [self.queue cancelAllOperations];
+    
+    //refresh all hosts to start filling in the model
     [self.entries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         OTHost * host = obj;
         host.refreshing = YES;
     } ];
     
+
     dispatch_async(dispatch_get_main_queue(), ^{
         //NSLog(@"server tested %d %@",serverTested,key);
         self.progressBar.progress =  0;
@@ -235,36 +227,41 @@
 
 -(void) connectivityChecks
 {
-    //make all the op asyn using operation q
-    [self refreshResetModel];
     
-    int numberofServers = self.hosts.count;
+    [self resetModel];
+ 
     __block int serverTested = 0;
     
     [self.hosts enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
-        [self host:key refreshing:YES];
+        
         OTConnectivityBaseOperation * operation = [self operationToPerformWithHost:key port:[obj integerValue] timeout:10];
-       // NSAssert(operation != nil,@"pointer is nil" );
-       
+        NSAssert(operation != nil,@"pointer is nil" );
+        
         __block __weak OTConnectivityBaseOperation * weakOperation = operation;
         operation.completionBlock = ^{
-     
-            NSAssert( weakOperation != nil, @"pointer is nil" );
+            if(weakOperation.isCancelled == NO)
+            {
+                NSAssert( weakOperation != nil, @"pointer is nil" );
+                
+                [self host:key connected:weakOperation.connected];
+                
+                weakOperation = nil;
+                serverTested++;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //NSLog(@"server tested %d %@",serverTested,key);
+                    self.progressBar.progress =  ((float)serverTested/(float)self.hosts.count);
+                    [self.tableView reloadData];
+                    [self.tableView setNeedsDisplay];
+                    
+                });
 
-            [self host:key connected:weakOperation.connected];
-            
-            weakOperation = nil;
-            serverTested++;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                //NSLog(@"server tested %d %@",serverTested,key);
-                self.progressBar.progress =  ((float)serverTested/(float)self.hosts.count);
-                [self.tableView reloadData];
-                [self.tableView setNeedsDisplay];
-               
-            });
+            } else {
+                NSLog(@"OPERATION +CANCELLED");
+            }
             
         };
+        
         
         [self.queue addOperation:operation];
     }];
