@@ -27,19 +27,6 @@
 
 @implementation ConnectivityTableViewBaseController
 
-//Helper for creating protocol based individual controllers
-+(ConnectivityTableViewBaseController *) connectivityTableViewBaseControllerWithType : (ConnectivityTableViewBaseControllerType) type
-{
-//    switch (type) {
-//        case ConnectivityTableViewBaseController_TCP:
-//            return [
-//            break;
-//            
-//        default:
-//            break;
-//    }
-    return nil;
-}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -86,6 +73,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.queue = [NSOperationQueue new];
+    
+    //throttle so the user experience is slow
     [self.queue setMaxConcurrentOperationCount:3];
     
     [self initializeAllHosts];
@@ -253,7 +242,7 @@
     [self.hosts enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         
         
-        OTConnectivityBaseOperation * operation = [self operationToPerformWithHost:key port:[obj integerValue] timeout:10];
+        OTConnectivityBaseOperation * operation = [self operationToPerformWithHost:key port:(int)[obj integerValue] timeout:10];
         NSAssert(operation != nil,@"pointer is nil" );
         
         __block __weak OTConnectivityBaseOperation * weakOperation = operation;

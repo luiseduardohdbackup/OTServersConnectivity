@@ -10,12 +10,6 @@
 
 @class OTConnectivityBaseOperation;
 
-typedef NS_ENUM(NSUInteger, ConnectivityTableViewBaseControllerType) {
-    ConnectivityTableViewBaseController_TCP,
-    ConnectivityTableViewBaseController_STUN_UDP,
-    ConnectivityTableViewBaseController_WSS,
-    
-};
 
 @interface OTHost : NSObject
 @property (nonatomic, strong) NSString * name;
@@ -26,8 +20,7 @@ typedef NS_ENUM(NSUInteger, ConnectivityTableViewBaseControllerType) {
 
 @interface ConnectivityTableViewBaseController : UITableViewController
 
-//Helper for creating protocol based individual controllers
-+(ConnectivityTableViewBaseController *) connectivityTableViewBaseControllerWithType : (ConnectivityTableViewBaseControllerType) type;
+
 
 // set this to your host list else nothing gets checked
 @property (nonatomic, strong) NSDictionary * hosts;
