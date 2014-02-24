@@ -14,7 +14,6 @@
 		237BCE6B18A425BA0003D77B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCE6A18A425BA0003D77B /* main.m */; };
 		237BCE6F18A425BA0003D77B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCE6E18A425BA0003D77B /* AppDelegate.m */; };
 		237BCE7218A425BA0003D77B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237BCE7018A425BA0003D77B /* Main.storyboard */; };
-		237BCE7518A425BA0003D77B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 237BCE7418A425BA0003D77B /* ViewController.m */; };
 		237BCE7718A425BA0003D77B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 237BCE7618A425BA0003D77B /* Images.xcassets */; };
 		237BCE7E18A425BA0003D77B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237BCE7D18A425BA0003D77B /* XCTest.framework */; };
 		237BCE7F18A425BA0003D77B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237BCE5E18A425BA0003D77B /* Foundation.framework */; };
@@ -65,8 +64,6 @@
 		237BCE6D18A425BA0003D77B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		237BCE6E18A425BA0003D77B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		237BCE7118A425BA0003D77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		237BCE7318A425BA0003D77B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		237BCE7418A425BA0003D77B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		237BCE7618A425BA0003D77B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		237BCE7C18A425BA0003D77B /* OpenTokServersConnectivityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenTokServersConnectivityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		237BCE7D18A425BA0003D77B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -179,8 +176,6 @@
 				237BCE6E18A425BA0003D77B /* AppDelegate.m */,
 				237BCEF718A5B8380003D77B /* TableViewCell.h */,
 				237BCEF818A5B8380003D77B /* TableViewCell.m */,
-				237BCE7318A425BA0003D77B /* ViewController.h */,
-				237BCE7418A425BA0003D77B /* ViewController.m */,
 				237BCE7618A425BA0003D77B /* Images.xcassets */,
 				237BCE6518A425BA0003D77B /* Supporting Files */,
 			);
@@ -371,7 +366,6 @@
 				237BCEB218A43F230003D77B /* STUNClient.m in Sources */,
 				237BCEA318A43F0A0003D77B /* NSData+SRB64Additions.m in Sources */,
 				237BCEFC18A5B85E0003D77B /* OTConnectivityBaseOperation.m in Sources */,
-				237BCE7518A425BA0003D77B /* ViewController.m in Sources */,
 				237BCE6F18A425BA0003D77B /* AppDelegate.m in Sources */,
 				237BCEB518A43F230003D77B /* OTWebSocketOperation.m in Sources */,
 				237BCEA218A43F0A0003D77B /* SRWebSocket.m in Sources */,
