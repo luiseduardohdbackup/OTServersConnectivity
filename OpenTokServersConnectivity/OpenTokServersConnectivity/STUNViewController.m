@@ -19,7 +19,8 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        self.hosts =   @{@"turn702-mia.tokbox.com": @3478,
+        self.hosts =   @{   @"turn702-mia.tokbox.com": @3478,
+                            @"mantis902-mia.tokbox.com": @3478,
                             @"turn801-lhr.tokbox.com": @3478,
                             @"mantis901-mia.tokbox.com": @3478,
                             @"turn401-oak.tokbox.com": @3478,

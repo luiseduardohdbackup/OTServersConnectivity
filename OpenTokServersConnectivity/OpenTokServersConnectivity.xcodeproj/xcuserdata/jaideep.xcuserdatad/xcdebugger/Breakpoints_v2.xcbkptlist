@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/OTWebSocketOperation.m"
-            timestampString = "413609343.913704"
+            timestampString = "413748982.12021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-webSocket:didCloseWithCode:reason:wasClean:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/OTWebSocketOperation.m"
-            timestampString = "413609343.913704"
+            timestampString = "413748982.12021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-webSocket:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/OTWebSocketOperation.m"
-            timestampString = "413609343.913704"
+            timestampString = "413748982.12021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-webSocket:didReceiveMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/ConnectivityTableViewBaseController.m"
-            timestampString = "413601515.378364"
+            timestampString = "414960456.964159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-initializeAllHosts"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "+connectivityTableViewBaseControllerWithType:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -152,12 +152,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/ConnectivityTableViewBaseController.m"
-            timestampString = "413601534.101912"
+            timestampString = "414960456.964159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-initializeAllHosts"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "+connectivityTableViewBaseControllerWithType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/ConnectivityTableViewBaseController.m"
-            timestampString = "413602569.40468"
+            timestampString = "414960456.964159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/ConnectivityTableViewBaseController.m"
-            timestampString = "413602592.112528"
+            timestampString = "414960456.964159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenTokServersConnectivity/ConnectivityTableViewBaseController.m"
-            timestampString = "413607933.909062"
+            timestampString = "414960456.964159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "-connectivityChecks"
             landmarkType = "5">
          </BreakpointContent>

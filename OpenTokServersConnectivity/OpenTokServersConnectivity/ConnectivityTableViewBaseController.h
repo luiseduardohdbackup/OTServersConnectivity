@@ -7,9 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class OTConnectivityBaseOperation;
 
+typedef NS_ENUM(NSUInteger, ConnectivityTableViewBaseControllerType) {
+    ConnectivityTableViewBaseController_TCP,
+    ConnectivityTableViewBaseController_STUN_UDP,
+    ConnectivityTableViewBaseController_WSS,
+    
+};
+
+@interface OTHost : NSObject
+@property (nonatomic, strong) NSString * name;
+@property int port;
+@property BOOL connected;
+@property BOOL refreshing;
+@end
+
 @interface ConnectivityTableViewBaseController : UITableViewController
+
+//Helper for creating protocol based individual controllers
++(ConnectivityTableViewBaseController *) connectivityTableViewBaseControllerWithType : (ConnectivityTableViewBaseControllerType) type;
+
 // set this to your host list else nothing gets checked
 @property (nonatomic, strong) NSDictionary * hosts;
 
@@ -27,3 +46,15 @@
 //use when your NSOperation completion block is called at the end to do UI stuff
 -(void) postOperationUI;
 @end
+
+
+
+@interface TCPViewController : ConnectivityTableViewBaseController
+@end
+
+@interface STUNViewController : ConnectivityTableViewBaseController
+@end
+
+@interface WSSViewController : ConnectivityTableViewBaseController
+@end
+

@@ -22,22 +22,27 @@
     if (self) {
         // Custom initialization
         self.hosts =   @{@"anvil.opentok.com": @80,
+                         
                          @"hlg.tokbox.com" : @80,
+                         
                          @"oscar.tokbox.com" : @80,
                          @"dev.oscar.tokbox.com" : @80,
+                         
                          @"mantis504-nyc.tokbox.com" :@5560,
                          @"mantis503-nyc.tokbox.com" :@5560,
                          @"mantis404-oak.tokbox.com" :@5560,
                          @"mantis802-lhr.tokbox.com" :@5560,
-                         @"mantis702-mia.tokbox.com" :@5560,
                          @"mantis403-oak.tokbox.com" :@5560,
                          @"mantis901-mia.tokbox.com" :@5560,
                          @"mantis502-nyc.tokbox.com" :@5560,
                          @"mantis501-nyc.tokbox.com" :@5560,
+                         @"mantis902-mia.tokbox.com" :@5560,
                          @"mantis401-oak.tokbox.com" :@5560,
                          @"mantis402-oak.tokbox.com" :@5560,
                          @"mantis801-lhr.tokbox.com" :@5560,
+                         
                          @"turn702-mia.tokbox.com" :@443,
+                         @"turn902-mia.tokbox.com" :@443,
                          @"turn801-lhr.tokbox.com" :@443,
                          @"mantis901-mia.tokbox.com" :@443,
                          @"turn401-oak.tokbox.com" :@443,

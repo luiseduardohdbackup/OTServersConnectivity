@@ -23,11 +23,12 @@
                             @"mantis503-nyc.tokbox.com" :@443,
                             @"mantis404-oak.tokbox.com" :@443,
                             @"mantis802-lhr.tokbox.com" :@443,
-                            @"mantis702-mia.tokbox.com" :@443,
+                           
                             @"mantis403-oak.tokbox.com" :@443,
                             @"mantis901-mia.tokbox.com" :@443,
                             @"mantis502-nyc.tokbox.com" :@443,
                             @"mantis501-nyc.tokbox.com" :@443,
+                            @"mantis902-mia.tokbox.com" :@443,
                             @"mantis401-oak.tokbox.com" :@443,
                             @"mantis402-oak.tokbox.com" :@443,
                             @"mantis801-lhr.tokbox.com" :@443,

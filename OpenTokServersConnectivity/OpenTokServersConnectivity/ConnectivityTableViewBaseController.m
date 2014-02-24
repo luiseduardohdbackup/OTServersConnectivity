@@ -8,8 +8,13 @@
 
 #import "ConnectivityTableViewBaseController.h"
 #import "TableViewCell.h"
-#import "OTHost.h"
 #import "OTConnectivityBaseOperation.h"
+#import "OTTCPOperation.h"
+#import "OTSTUNOperation.h"
+#import "OTWebSocketOperation.h"
+
+@implementation OTHost
+@end
 
 
 @interface ConnectivityTableViewBaseController ()
@@ -22,6 +27,19 @@
 
 @implementation ConnectivityTableViewBaseController
 
+//Helper for creating protocol based individual controllers
++(ConnectivityTableViewBaseController *) connectivityTableViewBaseControllerWithType : (ConnectivityTableViewBaseControllerType) type
+{
+//    switch (type) {
+//        case ConnectivityTableViewBaseController_TCP:
+//            return [
+//            break;
+//            
+//        default:
+//            break;
+//    }
+    return nil;
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -278,3 +296,141 @@
     return nil;
 }
 @end
+
+@implementation TCPViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+        self.hosts =   @{@"anvil.opentok.com": @80,
+                         
+                         @"hlg.tokbox.com" : @80,
+                         
+                         @"oscar.tokbox.com" : @80,
+                         @"dev.oscar.tokbox.com" : @80,
+                         
+                         @"mantis504-nyc.tokbox.com" :@5560,
+                         @"mantis503-nyc.tokbox.com" :@5560,
+                         @"mantis404-oak.tokbox.com" :@5560,
+                         @"mantis802-lhr.tokbox.com" :@5560,
+                         @"mantis403-oak.tokbox.com" :@5560,
+                         @"mantis901-mia.tokbox.com" :@5560,
+                         @"mantis502-nyc.tokbox.com" :@5560,
+                         @"mantis501-nyc.tokbox.com" :@5560,
+                         @"mantis902-mia.tokbox.com" :@5560,
+                         @"mantis401-oak.tokbox.com" :@5560,
+                         @"mantis402-oak.tokbox.com" :@5560,
+                         @"mantis801-lhr.tokbox.com" :@5560,
+                         
+                         @"turn702-mia.tokbox.com" :@443,
+                         @"turn902-mia.tokbox.com" :@443,
+                         @"turn801-lhr.tokbox.com" :@443,
+                         @"mantis901-mia.tokbox.com" :@443,
+                         @"turn401-oak.tokbox.com" :@443,
+                         @"turn403-oak.tokbox.com" :@443,
+                         @"turn503-nyc.tokbox.com" :@443,
+                         @"turn802-lhr.tokbox.com" :@443,
+                         @"turn402-oak.tokbox.com" :@443,
+                         @"turn502-nyc.tokbox.com" :@443,
+                         @"turn404-oak.tokbox.com" :@443,
+                         @"turn504-nyc.tokbox.com" :@443,
+                         @"turn501-nyc.tokbox.com" :@443,
+                         };
+        
+    }
+    return self;
+}
+-(void) initializeDisplayTitle
+{
+    self.title = @"Tokbox TCP checks";
+}
+
+
+-(OTConnectivityBaseOperation * ) operationToPerformWithHost:(NSString *) host port:(int)portNum timeout:(NSTimeInterval)time
+{
+    return [[OTTCPOperation alloc] initWithHost:host port:portNum timeout:time];
+}
+
+
+@end
+
+@implementation STUNViewController
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+        self.hosts =   @{   @"turn702-mia.tokbox.com": @3478,
+                            @"mantis902-mia.tokbox.com": @3478,
+                            @"turn801-lhr.tokbox.com": @3478,
+                            @"mantis901-mia.tokbox.com": @3478,
+                            @"turn401-oak.tokbox.com": @3478,
+                            @"turn403-oak.tokbox.com": @3478,
+                            @"turn503-nyc.tokbox.com": @3478,
+                            @"turn802-lhr.tokbox.com": @3478,
+                            @"turn402-oak.tokbox.com": @3478,
+                            @"turn502-nyc.tokbox.com": @3478,
+                            @"turn404-oak.tokbox.com": @3478,
+                            @"turn504-nyc.tokbox.com": @3478,
+                            @"turn501-nyc.tokbox.com": @3478,
+                            };
+        
+    }
+    return self;
+}
+-(void) initializeDisplayTitle
+{
+    self.title = @"Tokbox Stun/Udp checks";
+}
+
+-(OTConnectivityBaseOperation * ) operationToPerformWithHost:(NSString *) host port:(int)portNum timeout:(NSTimeInterval)time
+{
+    return [[OTSTUNOperation alloc] initWithHost:host port:portNum timeout:time];
+}
+
+
+@end
+
+@implementation WSSViewController
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+        self.hosts =      @{@"mantis504-nyc.tokbox.com" :@443,
+                            @"mantis503-nyc.tokbox.com" :@443,
+                            @"mantis404-oak.tokbox.com" :@443,
+                            @"mantis802-lhr.tokbox.com" :@443,
+                            
+                            @"mantis403-oak.tokbox.com" :@443,
+                            @"mantis901-mia.tokbox.com" :@443,
+                            @"mantis502-nyc.tokbox.com" :@443,
+                            @"mantis501-nyc.tokbox.com" :@443,
+                            @"mantis902-mia.tokbox.com" :@443,
+                            @"mantis401-oak.tokbox.com" :@443,
+                            @"mantis402-oak.tokbox.com" :@443,
+                            @"mantis801-lhr.tokbox.com" :@443,
+                            };
+        
+        
+        
+    }
+    return self;
+}
+-(void) initializeDisplayTitle
+{
+    self.title = @"Tokbox Websockets checks";
+}
+
+
+-(OTConnectivityBaseOperation * ) operationToPerformWithHost:(NSString *) host port:(int)portNum timeout:(NSTimeInterval)time
+{
+    return [[OTWebSocketOperation alloc] initWithHost:host port:portNum timeout:time];
+}
+
+@end
+
+
+

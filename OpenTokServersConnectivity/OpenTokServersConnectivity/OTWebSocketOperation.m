@@ -20,6 +20,7 @@
 @end
 
 @implementation OTWebSocketOperation
+
 -(id) init
 {
     [NSException exceptionWithName:@"Invalid init call" reason:@"Use initWithHost:port" userInfo:nil];
@@ -131,6 +132,9 @@
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket;
 {
    // NSLog(@"Websocket Connected");
+    self.connected = YES;
+    [self tearDown];
+
     
 }
 
@@ -146,13 +150,12 @@
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
 {
    // NSLog(@"Received \"%@\"", message);
-    self.connected = YES;
-    [self tearDown];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
    // NSLog(@"WebSocket closed");
+    
     [self tearDown];
   
 }
